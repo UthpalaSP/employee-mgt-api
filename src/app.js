@@ -3,7 +3,6 @@ const cors = require("cors");
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
 
-// const mongoose = require("mongoose");
 const app = express();
 // swagger documentation
 const swaggerOptions = {
@@ -27,40 +26,3 @@ app.use(cors());
 app.use(express.json());
 
 module.exports = app;
-// const Employee = require("./models/employeeModel");
-
-// app.get("/", (req, res) => {
-//   res.send("Hello World  ");
-// });
-
-// app.post("/employee", async (req, res) => {
-//   try {
-//     const employee = await Employee.create(req.body);
-//     res.status(200).json(employee);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
-
-// app.get("/employees", async (req, res) => {
-//   try {
-//     const employees = await Employee.find({});
-//     res.status(200).json(employees);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
-
-// mongoose
-//   .connect(
-//     "mongodb+srv://admin:1234@employeemgtappcluster.qdo6ksz.mongodb.net/"
-//   )
-//   .then(() => {
-//     app.listen(3200, () => {
-//       console.log(`Listening on 3200`);
-//     });
-//     console.log("connected to Mongo");
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
