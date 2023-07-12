@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
+const employeeRoute = require("./routes/employeeRoutes");
 
 const app = express();
 // swagger documentation
@@ -24,5 +25,8 @@ app.use(cors());
 
 // Body parser, reading data from body into req.body
 app.use(express.json());
+
+// Routes
+app.use("/api/employee", employeeRoute);
 
 module.exports = app;

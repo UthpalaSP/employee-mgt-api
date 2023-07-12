@@ -1,9 +1,12 @@
 const mongoose = require("mongoose");
+// var uniqueValidator = require("mongoose-unique-validator");
 
 const employeeSchema = mongoose.Schema(
   {
     id: {
-      type: Number,
+      type: String,
+      required: [true, "Please enter id"],
+      // unique: true,
     },
     name: {
       type: String,
@@ -11,7 +14,8 @@ const employeeSchema = mongoose.Schema(
     },
     login: {
       type: String,
-      required: [true],
+      required: [true, "Please enter a login"],
+      // unique: true,
     },
     salary: {
       type: Number,
@@ -23,6 +27,8 @@ const employeeSchema = mongoose.Schema(
     timestamps: true,
   }
 );
+
+// employeeSchema.plugin(uniqueValidator);
 
 const Employee = mongoose.model("Employee", employeeSchema);
 

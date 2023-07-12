@@ -25,6 +25,7 @@ mongoose
     // useFindAndModify: false,
   })
   .then(() => {
+    mongoose.set("bufferCommands", false);
     console.log("DB connection Successfully!");
   });
 

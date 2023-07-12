@@ -1,0 +1,27 @@
+{"level":"error","timestamp":"2023-07-11T14:33:55.264Z"}
+{"level":"error","timestamp":"2023-07-11T14:35:13.861Z"}
+{"code":"ERR_INVALID_ARG_TYPE","level":"error","timestamp":"2023-07-11T14:39:39.917Z"}
+{"_original":["e0001,hpotter,Harry Potter,1234.00"],"details":[{"context":{"label":"value","type":"object","value":["e0001,hpotter,Harry Potter,1234.00"]},"message":"\"value\" must be of type object","path":[],"type":"object.base"}],"level":"error","timestamp":"2023-07-12T10:12:24.896Z"}
+{"level":"error","timestamp":"2023-07-12T10:17:23.744Z"}
+{"level":"error","timestamp":"2023-07-12T10:18:42.037Z"}
+{"level":"error","timestamp":"2023-07-12T10:18:48.858Z"}
+{"level":"error","timestamp":"2023-07-12T10:20:49.344Z"}
+{"level":"error","timestamp":"2023-07-12T10:22:02.627Z"}
+{"level":"error","timestamp":"2023-07-12T10:22:36.887Z"}
+{"level":"error","timestamp":"2023-07-12T10:24:16.463Z"}
+{"level":"error","timestamp":"2023-07-12T10:26:01.893Z"}
+{"_original":{"_id":"64ae80013ec56ec4f44e9a80","salary":0},"details":[{"context":{"key":"id","label":"id"},"message":"\"id\" is required","path":["id"],"type":"any.required"}],"level":"error","timestamp":"2023-07-12T10:27:13.469Z"}
+{"_original":{"_id":"64ae802fef493d56d15f3cc9","login":"Harry Potter","name":"hpotter","salary":1234},"details":[{"context":{"key":"id","label":"id"},"message":"\"id\" is required","path":["id"],"type":"any.required"}],"level":"error","timestamp":"2023-07-12T10:27:59.126Z"}
+{"_original":{"_id":"64ae80b63b20abea6492fa32","id":"e0001","login":"Harry Potter","name":"hpotter","salary":1234},"details":[{"context":{"child":"$__","key":"$__","label":"$__","value":{"activePaths":{"paths":{"_id":"default","id":"modify","login":"modify","name":"modify","salary":"modify"},"states":{"default":{"_id":true},"modify":{"id":true,"login":true,"name":true,"salary":true},"require":{}}}}},"message":"\"$__\" is not allowed","path":["$__"],"type":"object.unknown"}],"level":"error","timestamp":"2023-07-12T10:30:14.508Z"}
+{"_original":{"_id":"64ae80ec6c03abedb2125e17","id":"e0001","login":"Harry Potter","name":"hpotter","salary":1234},"details":[{"context":{"child":"$__","key":"$__","label":"$__","value":{"activePaths":{"paths":{"_id":"default","id":"modify","login":"modify","name":"modify","salary":"modify"},"states":{"default":{"_id":true},"modify":{"id":true,"login":true,"name":true,"salary":true},"require":{}}}}},"message":"\"$__\" is not allowed","path":["$__"],"type":"object.unknown"}],"level":"error","timestamp":"2023-07-12T10:31:08.786Z"}
+{"_original":{"_id":"64ae811ad17ce7fc79b32d52","id":"e0001","login":"hpotter","name":"Harry Potter","salary":1234},"details":[{"context":{"child":"$__","key":"$__","label":"$__","value":{"activePaths":{"paths":{"_id":"default","id":"modify","login":"modify","name":"modify","salary":"modify"},"states":{"default":{"_id":true},"modify":{"id":true,"login":true,"name":true,"salary":true},"require":{}}}}},"message":"\"$__\" is not allowed","path":["$__"],"type":"object.unknown"}],"level":"error","timestamp":"2023-07-12T10:31:54.989Z"}
+{"_original":{"_id":"64ae81d18c7f070c71e4deae","id":"e0001","login":"hpotter","name":"Harry Potter","salary":1234},"details":[{"context":{"child":"$__","key":"$__","label":"$__","value":{"activePaths":{"paths":{"_id":"default","id":"modify","login":"modify","name":"modify","salary":"modify"},"states":{"default":{"_id":true},"modify":{"id":true,"login":true,"name":true,"salary":true},"require":{}}}}},"message":"\"$__\" is not allowed","path":["$__"],"type":"object.unknown"}],"level":"error","timestamp":"2023-07-12T10:34:57.307Z"}
+{"_original":{"_id":"64ae830f94f1e472969ba02e","id":"e0001","login":"hpotter","name":"Harry Potter","salary":1234},"details":[{"context":{"child":"$__","key":"$__","label":"$__","value":{"activePaths":{"paths":{"_id":"default","id":"modify","login":"modify","name":"modify","salary":"modify"},"states":{"default":{"_id":true},"modify":{"id":true,"login":true,"name":true,"salary":true},"require":{}}}}},"message":"\"$__\" is not allowed","path":["$__"],"type":"object.unknown"}],"level":"error","timestamp":"2023-07-12T10:40:15.933Z"}
+{"_original":{"_id":"64ae837f7006e068f9229679","id":"e0001","login":"hpotter","name":"Harry Potter","salary":1234},"details":[{"context":{"child":"$__","key":"$__","label":"$__","value":{"activePaths":{"paths":{"_id":"default","id":"modify","login":"modify","name":"modify","salary":"modify"},"states":{"default":{"_id":true},"modify":{"id":true,"login":true,"name":true,"salary":true},"require":{}}}}},"message":"\"$__\" is not allowed","path":["$__"],"type":"object.unknown"}],"level":"error","timestamp":"2023-07-12T10:42:07.453Z"}
+{"level":"error","timestamp":"2023-07-12T10:43:07.471Z"}
+{"level":"error","timestamp":"2023-07-12T10:43:40.654Z"}
+{"level":"error","timestamp":"2023-07-12T14:42:33.557Z"}
+{"level":"error","timestamp":"2023-07-12T14:50:46.640Z"}
+{"level":"error","timestamp":"2023-07-12T15:38:01.362Z"}
+{"level":"error","timestamp":"2023-07-12T15:44:08.530Z"}
+{"level":"error","timestamp":"2023-07-12T15:45:18.833Z"}
