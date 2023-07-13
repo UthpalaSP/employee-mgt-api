@@ -3,38 +3,47 @@ const createError = require("../helpers/error_response");
 const createResponse = require("../helpers/success_response");
 const { logger, fileLogger } = require("../helpers/logger");
 const { createEmployeeSchema } = require("../helpers/validation_schema");
-const mongoose = require("mongoose");
 
 const csv = require("fast-csv");
 const fs = require("fs");
-const Joi = require("joi");
 
 exports.getAll = async (req, res) => {
   try {
-    const maxResults = req.query.pageSize; // Number of results per page
-    const page = parseInt(req.query.page) || 1;
-    const sort = req.query.sort || "id";
-    const filter = req.query.filter || {};
-    const sortOrder = req.query.sortOrder || "0";
+    const queryParams = JSON.parse(req.query.lazyEvent);
+    const rows = queryParams.rows || 10; // Number of results per page
+    const first = parseInt(queryParams.first) || 0;
+    const sortField = queryParams.sortField || "id";
+    const sortOrder = queryParams.sortOrder || "1";
 
-    const allEmployees = await Employee.find(filter)
-      .sort(sort)
-      .skip((page - 1) * maxResults)
-      .limit(maxResults); //.find({ id: req.payload.id });
-    console.log("getAll endpoint: ");
-    const totalCountQuery = Employee.countDocuments(filter);
+    // Get property names and values where value is not null
+    let filters = Object.entries(queryParams.filters)
+      .filter(([, value]) => value.value !== null && value.value)
+      .map(([key, value]) => ({ [key]: value.value }));
+    filters = filters.length == 0 ? {} : filters;
+
+    // mongoose.connect(
+    //   "mongodb+srv://admin:1234@employeemgtappcluster.qdo6ksz.mongodb.net/"
+    // );
+
+    const query = await Employee.find(filters[0])
+      .sort({ [sortField]: sortOrder })
+      .skip(first)
+      .limit(rows);
+
+    const totalCountQuery = Employee.countDocuments(filters[0]);
 
     const [employees, totalCount] = await Promise.all([query, totalCountQuery]);
 
     var result = {
       employees,
       totalCount,
-      totalPages: Math.ceil(totalCount / maxResults),
-      currentPage: page,
+      totalPages: Math.ceil(totalCount / rows),
+      currentPage: first,
     };
 
     return res.status(200).send(createResponse(result));
   } catch (error) {
+    console.log("ERROR : ", error);
     logger.error(error);
     fileLogger.error(error);
     return res.status(500).send(createError("Internal server error"));
@@ -62,9 +71,9 @@ exports.upload = async (req, res) => {
     const existingEmployeeLogins = new Set();
     let isFirstRow = true;
 
-    mongoose.connect(
-      "mongodb+srv://admin:1234@employeemgtappcluster.qdo6ksz.mongodb.net/"
-    );
+    // mongoose.connect(
+    //   "mongodb+srv://admin:1234@employeemgtappcluster.qdo6ksz.mongodb.net/"
+    // );
     // Fetch existing employee IDs and logins from the database
     const existingEmployees = await Employee.find({}, { id: 1, login: 1 });
     existingEmployees.forEach((employee) => {
@@ -73,12 +82,9 @@ exports.upload = async (req, res) => {
     });
 
     if (importFilename && importedFilepath) {
-      const fileRows = [];
-
       fs.createReadStream(importedFilepath)
         .pipe(csv.parse({ headers: false }))
         .on("error", (error) => {
-          console.error("FAST-CSV ERROR: ", error);
           return res.status(500).send(createError(error.message));
         })
         .on("data", (data) => {
@@ -127,10 +133,6 @@ exports.upload = async (req, res) => {
           }
         })
         .on("end", async () => {
-          console.log(
-            "Insert new employees into the database - employees: ",
-            employees
-          );
           // Insert new employees into the database
           await Employee.insertMany(employees)
             .then(function () {
@@ -147,7 +149,6 @@ exports.upload = async (req, res) => {
         });
     }
   } catch (error) {
-    console.log("ERROR: ", error);
     logger.error(error);
     fileLogger.error(error);
     return res.status(500).send(createError("Internal server error"));
@@ -159,7 +160,6 @@ function isValidEmployee(
   existingEmployeeIds,
   existingEmployeeLogins
 ) {
-  console.log("isValidEmployee - employee: ", employee);
   // Check if required fields are present
   if (!employee.id || !employee.login || !employee.name || !employee.salary) {
     return false;
@@ -180,57 +180,3 @@ function isValidEmployee(
 
   return true;
 }
-
-// exports.create = async (req, res) => {
-//   try {
-//     // validating request body
-//     const validateBody = await createEmployeeSchema.validateAsync(req.body);
-
-//     const newEmployee = new Employee({
-//       name: validateBody.name,
-//       login: validateBody.login,
-//       salary: validateBody.salary,
-//     });
-
-//     const savedEmployee = await newEmployee.save();
-//     return res.status(201).send(createResponse(savedEmployee));
-//   } catch (error) {
-//     logger.error(error);
-//     fileLogger.error(error);
-//     if (error.isJoi === true)
-//       return res.status(400).send(createError("Invalid request body"));
-//     return res.status(500).send(createError("Internal server error"));
-//   }
-// };
-
-// app.post("/employee", async (req, res) => {
-//   try {
-//     const employee = await Employee.create(req.body);
-//     res.status(200).json(employee);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
-
-// app.get("/employees", async (req, res) => {
-//   try {
-//     const employees = await Employee.find({});
-//     res.status(200).json(employees);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
-
-// mongoose
-//   .connect(
-//     "mongodb+srv://admin:1234@employeemgtappcluster.qdo6ksz.mongodb.net/"
-//   )
-//   .then(() => {
-//     app.listen(3200, () => {
-//       console.log(`Listening on 3200`);
-//     });
-//     console.log("connected to Mongo");
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });

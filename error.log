@@ -25,3 +25,25 @@
 {"level":"error","timestamp":"2023-07-12T15:38:01.362Z"}
 {"level":"error","timestamp":"2023-07-12T15:44:08.530Z"}
 {"level":"error","timestamp":"2023-07-12T15:45:18.833Z"}
+{"level":"error","timestamp":"2023-07-13T03:32:25.622Z"}
+{"level":"error","timestamp":"2023-07-13T03:34:05.052Z"}
+{"level":"error","timestamp":"2023-07-13T03:36:27.710Z"}
+{"level":"error","timestamp":"2023-07-13T03:38:31.212Z"}
+{"level":"error","timestamp":"2023-07-13T03:39:06.707Z"}
+{"level":"error","timestamp":"2023-07-13T05:25:14.715Z"}
+{"level":"error","timestamp":"2023-07-13T05:30:53.675Z"}
+{"level":"error","timestamp":"2023-07-13T05:31:25.469Z"}
+{"level":"error","timestamp":"2023-07-13T05:36:24.273Z"}
+{"level":"error","timestamp":"2023-07-13T05:53:06.244Z"}
+{"level":"error","timestamp":"2023-07-13T05:53:10.472Z"}
+{"level":"error","timestamp":"2023-07-13T05:53:10.890Z"}
+{"level":"error","timestamp":"2023-07-13T05:53:11.602Z"}
+{"level":"error","timestamp":"2023-07-13T05:53:15.793Z"}
+{"kind":"Number","level":"error","path":"salary","reason":{"actual":false,"code":"ERR_ASSERTION","expected":true,"generatedMessage":true,"operator":"=="},"stringValue":"\"{ value: null, matchMode: 'startsWith' }\"","timestamp":"2023-07-13T05:56:41.146Z","value":{"matchMode":"startsWith","value":null},"valueType":"Object"}
+{"level":"error","timestamp":"2023-07-13T06:04:07.117Z"}
+{"level":"error","timestamp":"2023-07-13T06:07:22.673Z"}
+{"level":"error","timestamp":"2023-07-13T06:07:56.967Z"}
+{"level":"error","timestamp":"2023-07-13T06:08:28.738Z"}
+{"level":"error","timestamp":"2023-07-13T06:08:50.499Z"}
+{"level":"error","timestamp":"2023-07-13T06:09:11.712Z"}
+{"level":"error","timestamp":"2023-07-13T06:10:15.133Z"}
