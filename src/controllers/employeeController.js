@@ -22,7 +22,7 @@ exports.getAll = async (req, res) => {
     filters = filters.length == 0 ? {} : filters;
 
     // mongoose.connect(
-    //   "mongodb+srv://admin:1234@employeemgtappcluster.qdo6ksz.mongodb.net/"
+    //   "mongodb+srv://<>@employeemgtappcluster.qdo6ksz.mongodb.net/"
     // );
 
     const query = await Employee.find(filters[0])
@@ -72,7 +72,7 @@ exports.upload = async (req, res) => {
     let isFirstRow = true;
 
     // mongoose.connect(
-    //   "mongodb+srv://admin:1234@employeemgtappcluster.qdo6ksz.mongodb.net/"
+    //   "mongodb+srv://<>@employeemgtappcluster.qdo6ksz.mongodb.net/"
     // );
     // Fetch existing employee IDs and logins from the database
     const existingEmployees = await Employee.find({}, { id: 1, login: 1 });
